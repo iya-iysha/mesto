@@ -1,0 +1,13 @@
+.profile__add-btn-img {
+  max-width: 16px;
+  max-height: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .profile__add-btn-img {
+    max-width: 22px;
+    max-height: 22px;
+  }
+}

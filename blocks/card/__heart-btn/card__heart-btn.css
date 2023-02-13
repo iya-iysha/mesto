@@ -1,0 +1,10 @@
+.card__heart-btn {
+  border: none;
+  background-color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  align-self: end;
+  cursor: pointer;
+}

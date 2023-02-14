@@ -8,3 +8,7 @@
   align-self: end;
   cursor: pointer;
 }
+
+.card__heart-btn:hover {
+  opacity: 0.5;
+}

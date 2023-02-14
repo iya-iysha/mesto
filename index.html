@@ -13,7 +13,7 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img class="profile__avatar" src="./images/__avatar.png">
+          <img class="profile__avatar" src="./images/__avatar.png" alt="Аватарка">
           <div class="profile__heading">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button class="profile__edit-btn">
@@ -32,12 +32,11 @@
             </button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form">
-              <input type="text" class="popup__input">
-              <input type="text" class="popup__input">
+              <input type="text" class="popup__input" id="name">
+              <input type="text" class="popup__input" id="job">
               <button type="submit" class="popup__submit-btn">Сохранить</button>
             </form>
           </div>
-          
         </section>
         <section class="cards">
           <div class="card">
@@ -100,5 +99,6 @@
         <p class="footer__copyright">&copy;2020 Mesto Russia</p>
       </footer>
     </div>
+    <script src="./js/script.js"></script>
   </body>
 </html>

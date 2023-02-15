@@ -3,102 +3,84 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
+    <title lang="en">Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
     <div class="root">
       <header class="header">
-        <img class="header__logo" src="./images/__logo.png" alt="Логотип Место">
+        <img class="header__logo" src="./images/__logo.svg" alt="Логотип Место">
       </header>
       <main class="content">
         <section class="profile">
           <img class="profile__avatar" src="./images/__avatar.png" alt="Аватарка">
           <div class="profile__heading">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-btn">
-              <img class="profile__edit-btn-img" src="./images/__edit-btn.png" alt="Кнопка редактирования">
-            </button>
+            <button class="profile__edit-btn" type="button" aria-label="Редактировать профиль"></button>
           </div>
           <p class="profile__subtitle">Исследователь океана</p>
-          <button class="profile__add-btn">
-            <img class="profile__add-btn-img" src="./images/__add-btn.png" alt="Кнопка добавления">
-          </button>
-        </section>
-        <section class="popup">
-          <div class="popup__container">
-            <button class="popup__close-btn">
-              <img class="popup__close-btn-img" src="./images/close-icon.png" alt="Закрыть">
-            </button>
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form">
-              <input type="text" class="popup__input" id="name">
-              <input type="text" class="popup__input" id="job">
-              <button type="submit" class="popup__submit-btn">Сохранить</button>
-            </form>
-          </div>
+          <button class="profile__add-btn" type="button" aria-label="Добавить место"></button>
         </section>
         <section class="cards">
           <div class="card">
             <img class="card__image" src="./images/saint-petersburg.jpg" alt="Санкт-Петербург">
             <div class="card__caption">
               <h2 class="card__title">Санкт-Петербург</h2>
-              <button class="card__heart-btn">
-                <img class="card__heart-btn-img" src="./images/heart_disabled.svg" alt="Сердечко">
-              </button>
+              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
             </div>
           </div>
           <div class="card">
             <img class="card__image" src="./images/egypt.jpg" alt="Египет">
             <div class="card__caption">
               <h2 class="card__title">Египет</h2>
-              <button class="card__heart-btn">
-                <img class="card__heart-btn-img" src="./images/heart_disabled.svg" alt="Сердечко">
-              </button>
+              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
             </div>
           </div>
           <div class="card">
             <img class="card__image" src="./images/kazan.jpg" alt="Казань">
             <div class="card__caption">
               <h2 class="card__title">Казань</h2>
-              <button class="card__heart-btn">
-                <img class="card__heart-btn-img" src="./images/heart_disabled.svg" alt="Сердечко">
-              </button>
+              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
             </div>
           </div>
           <div class="card">
             <img class="card__image" src="./images/kolskiy-poluostrov.jpg" alt="Кольский полуостров">
             <div class="card__caption">
               <h2 class="card__title">Кольский полуостров</h2>
-              <button class="card__heart-btn">
-                <img class="card__heart-btn-img" src="./images/heart_disabled.svg" alt="Сердечко">
-              </button>
+              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
             </div>
           </div>
           <div class="card">
             <img class="card__image" src="./images/kopenhagen.jpg" alt="Копенгаген">
             <div class="card__caption">
               <h2 class="card__title">Копенгаген</h2>
-              <button class="card__heart-btn">
-                <img class="card__heart-btn-img" src="./images/heart_disabled.svg" alt="Сердечко">
-              </button>
+              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
             </div>
           </div>
           <div class="card">
             <img class="card__image" src="./images/lastochkino.jpg" alt="Ласточкино гнездо">
             <div class="card__caption">
               <h2 class="card__title">Ласточкино гнездо</h2>
-              <button class="card__heart-btn">
-                <img class="card__heart-btn-img" src="./images/heart_disabled.svg" alt="Сердечко">
-              </button>
+              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
             </div>
           </div>
         </section>
       </main>
       <footer class="footer">
-        <p class="footer__copyright">&copy;2020 Mesto Russia</p>
+        <p class="footer__copyright" lang="en">&copy;2020 Mesto Russia</p>
       </footer>
+      <section class="popup">
+        <div class="popup__container">
+          <button class="popup__close-btn" type="button" aria-label="Закрыть попап"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form" name="Редактировать профиль">
+            <input type="text" class="popup__input popup__input_type_name" placeholder="Имя пользователя" name="profileName">
+            <input type="text" class="popup__input popup__input_type_job" placeholder="Род деятельности" name="profileJob">
+            <button type="submit" class="popup__submit-btn" aria-label="Сохранить изменения">Сохранить</button>
+          </form>
+        </div>
+      </section>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

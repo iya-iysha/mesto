@@ -1,6 +1,5 @@
 .card__caption {
   display: flex;
-  overflow: hidden;
   justify-content: space-between;
   margin: 0;
   padding: 25px 15px 31px 21px;

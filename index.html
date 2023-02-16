@@ -69,18 +69,18 @@
       <footer class="footer">
         <p class="footer__copyright" lang="en">&copy;2020 Mesto Russia</p>
       </footer>
-      <section class="popup">
+      <div class="popup">
         <div class="popup__container">
           <button class="popup__close-btn" type="button" aria-label="Закрыть попап"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form" name="Редактировать профиль">
+          <form class="popup__form" name="editProfileForm">
             <input type="text" class="popup__input popup__input_type_name" placeholder="Имя пользователя" name="profileName">
             <input type="text" class="popup__input popup__input_type_job" placeholder="Род деятельности" name="profileJob">
-            <button type="submit" class="popup__submit-btn" aria-label="Сохранить изменения">Сохранить</button>
+            <button type="submit" class="popup__submit-btn">Сохранить</button>
           </form>
         </div>
-      </section>
+      </div>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>

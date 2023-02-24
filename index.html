@@ -22,48 +22,15 @@
           <button class="profile__add-btn" type="button" aria-label="Добавить место"></button>
         </section>
         <section class="cards">
-          <div class="card">
-            <img class="card__image" src="./images/saint-petersburg.jpg" alt="Санкт-Петербург">
-            <div class="card__caption">
-              <h2 class="card__title">Санкт-Петербург</h2>
-              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
+          <template id="card">
+            <div class="card">
+              <img class="card__image">
+              <div class="card__caption">
+                <h2 class="card__title"></h2>
+                <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/egypt.jpg" alt="Египет">
-            <div class="card__caption">
-              <h2 class="card__title">Египет</h2>
-              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/kazan.jpg" alt="Казань">
-            <div class="card__caption">
-              <h2 class="card__title">Казань</h2>
-              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/kolskiy-poluostrov.jpg" alt="Кольский полуостров">
-            <div class="card__caption">
-              <h2 class="card__title">Кольский полуостров</h2>
-              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/kopenhagen.jpg" alt="Копенгаген">
-            <div class="card__caption">
-              <h2 class="card__title">Копенгаген</h2>
-              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/lastochkino.jpg" alt="Ласточкино гнездо">
-            <div class="card__caption">
-              <h2 class="card__title">Ласточкино гнездо</h2>
-              <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
-            </div>
-          </div>
+          </template>
         </section>
       </main>
       <footer class="footer">

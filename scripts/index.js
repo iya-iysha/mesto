@@ -17,37 +17,39 @@ const titleInput = popupAddCard.querySelector('.popup__input_type_title');
 const linkInput = popupAddCard.querySelector('.popup__input_type_link');
 const addCardForm = popupAddCard.querySelector('.popup__form');
 
+const popupImage = document.querySelector('.popup_type_image');
+const imageLink = popupImage.querySelector('.popup__image');
+const imageName = popupImage.querySelector('.popup__image-name');
+
 const initialCards = [
   {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    name: 'Москва',
+    link: 'https://images.unsplash.com/photo-1572969176403-0d6e50b9ee5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=839&q=80'
   },
   {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: 'Санкт-Петербург',
+    link: 'https://images.unsplash.com/photo-1555460285-763ba96917d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
   },
   {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: 'Сочи',
+    link: 'https://images.unsplash.com/photo-1589794360421-9353dc25c668?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=883&q=80'
   },
   {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: 'Сулакский каньон',
+    link: 'https://images.unsplash.com/photo-1624719961119-ca670af4a20b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: 'Казань',
+    link: 'https://images.unsplash.com/photo-1600421539016-cc3f0866d2b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'
   },
   {
     name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    link: 'https://images.unsplash.com/photo-1617835594990-7cd5a9b5d153?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   }
 ];
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileSubtitle.textContent;
 }
 
 function closePopup(popup) {
@@ -65,6 +67,7 @@ function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   createCard(titleInput.value, linkInput.value);
   closePopup(popupAddCard);
+  addCardForm.reset();
 }
 
 function createCard (name, link) {
@@ -73,23 +76,29 @@ function createCard (name, link) {
   cardElement.querySelector('.card__image').src = link;
   cardElement.querySelector('.card__image').alt = name;
 
-  cardElement.querySelector('.card__heart-btn').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('card__heart-btn_active');
-  })
+  cardElement.querySelector('.card__heart-btn').addEventListener('click', (evt) => evt.target.classList.toggle('card__heart-btn_active'))
 
-  cardElement.querySelector('.card__trash-btn').addEventListener('click', function(evt) {
-    evt.target.closest('.card').remove();
-  })
+  cardElement.querySelector('.card__trash-btn').addEventListener('click', (evt) => evt.target.closest('.card').remove())
+
+  cardElement.querySelector('.card__image').addEventListener('click', (evt) => {
+    openPopup(popupImage);
+    imageLink.src = evt.target.src;
+    imageName.textContent = evt.target.closest('.card').querySelector('.card__title').textContent;
+  } )
 
   cards.append(cardElement);
 }
 
 initialCards.forEach ((item) => createCard(item.name, item.link));
 popupCloseBtn.forEach((item) => {
-  item.addEventListener('click', function () {closePopup(item.closest('.popup'))});
+  item.addEventListener('click', () => {closePopup(item.closest('.popup'))});
 })
 
-editProfileBtn.addEventListener('click', () => openPopup(popupEditProfile));
+editProfileBtn.addEventListener('click', () => {
+  openPopup(popupEditProfile); 
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileSubtitle.textContent;
+});
 addCardBtn.addEventListener('click', () => openPopup(popupAddCard));
 
 editProfileForm.addEventListener('submit', handleEditProfileFormSubmit);

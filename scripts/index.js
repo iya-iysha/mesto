@@ -76,6 +76,11 @@ function createCard (name, link) {
   cardElement.querySelector('.card__heart-btn').addEventListener('click', function (evt) {
     evt.target.classList.toggle('card__heart-btn_active');
   })
+
+  cardElement.querySelector('.card__trash-btn').addEventListener('click', function(evt) {
+    evt.target.closest('.card').remove();
+  })
+
   cards.append(cardElement);
 }
 

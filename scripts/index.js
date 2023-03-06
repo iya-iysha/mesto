@@ -52,9 +52,31 @@ function handleAddCardFormSubmit(evt) {
   addCardForm.reset();
 }
 
+function openedPopupSearch() {
+  const openedPopup = document.querySelector('.popup_opened');
+  return openedPopup;
+}
+
 initialCards.forEach ((item) => cardsContainer.prepend(createCard(item.name, item.link)));
+
 popupCloseBtns.forEach((item) => {
   item.addEventListener('click', () => {closePopup(item.closest('.popup'))});
+})
+
+document.addEventListener('keydown', (evt) => {
+  const openedPopup = openedPopupSearch();
+  if (evt.key === 'Escape' && openedPopup) {
+    closePopup(openedPopup);
+  }
+})
+
+document.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup')) {
+    const openedPopup = openedPopupSearch();
+    if (!evt.target.closest('.popup__container')) {
+    closePopup(openedPopup);
+  }
+  }
 })
 
 editProfileBtn.addEventListener('click', () => {

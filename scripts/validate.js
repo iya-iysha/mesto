@@ -42,6 +42,10 @@ function checkInputValidity (form, input, selectorsSet) {
 function setEventListeners (form, selectorsSet) {
   const inputsList = Array.from(form.querySelectorAll(selectorsSet.inputSelector));
   inputsList.forEach((input) => {input.addEventListener('input', () => checkInputValidity(form, input, selectorsSet))})
+  form.addEventListener('reset', () => {
+  setTimeout(() => { 
+    submitBtnState(form, selectorsSet), 0})
+  })
 }
 
 function enableValidation (selectorsSet) {

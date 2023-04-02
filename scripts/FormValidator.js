@@ -47,10 +47,14 @@ class FormValidator {
   
   _setEventListeners () {
     const inputsList = Array.from(this._form.querySelectorAll(this._selectorsSet.inputSelector));
-    inputsList.forEach((input) => {input.addEventListener('input', () => this._checkInputValidity(input))});
+    inputsList.forEach((input) => {
+      input.addEventListener('input', () => this._checkInputValidity(input))});
     this._form.addEventListener('reset', () => {
-    setTimeout(() => { 
-      this._submitBtnState(), 0})
+      setTimeout(() => { 
+        this._submitBtnState(), 0
+      });
+      inputsList.forEach((input) => {
+        this._form.addEventListener('reset', () => this._hideInputError(input))});
     })
   }
 

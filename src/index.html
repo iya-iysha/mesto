@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title lang="en">Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
     <div class="root">
       <header class="header">
-        <img class="header__logo" src="./images/__logo.svg" alt="Логотип Место">
+        <img class="header__logo" src="<%=require('./images/__logo.svg')%>" alt="Логотип Место">
       </header>
       <main class="content">
         <section class="profile">
-          <img class="profile__avatar" src="./images/__avatar.png" alt="Аватарка">
+          <img class="profile__avatar" src="<%=require('./images/__avatar.png')%>" alt="Аватарка">
           <div class="profile__heading">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button class="profile__edit-btn" type="button" aria-label="Редактировать профиль"></button>
@@ -24,7 +23,7 @@
         <section class="cards">
           <template id="card">
             <div class="card">
-              <img class="card__image">
+              <img class="card__image" src="#">
               <div class="card__caption">
                 <h2 class="card__title"></h2>
                 <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
@@ -79,6 +78,5 @@
         </div>
       </div>
     </div>
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>

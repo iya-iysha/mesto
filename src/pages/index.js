@@ -1,3 +1,4 @@
+import './index.css';
 import { initialCards, editProfileBtn, editProfileForm, addCardBtn, addCardForm } from '../utils/constants.js';
 import { addCard } from '../utils/utils.js';
 import Section from '../components/Section.js';
@@ -8,7 +9,6 @@ import { FormValidator, selectorsSet } from '../components/FormValidator.js';
 const cardsContainer = new Section({ items: initialCards, renderer: (item) => {
   addCard(item.name, item.link, cardsContainer);
 } }, '.cards');
-
 cardsContainer.renderItems();
 
 const validatorEditProfile = new FormValidator(selectorsSet, editProfileForm);

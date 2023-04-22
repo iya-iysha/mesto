@@ -1,15 +1,15 @@
-const cardsContainer = document.querySelector('.cards');
-
 const popupImage = document.querySelector('.popup_type_image');
 const imageLink = popupImage.querySelector('.popup__image');
 const imageName = popupImage.querySelector('.popup__image-name');
 
 const profile = document.querySelector('.profile');
-const editProfileBtn = profile.querySelector('.profile__edit-btn');
-const editProfileForm = document.forms.editProfileForm;
+const buttonOpenPopupProfile = profile.querySelector('.profile__edit-btn');
+const formEditProfile = document.forms.editProfileForm;
+const inputProfileName = formEditProfile.elements.profileName;
+const inputProfileJob = formEditProfile.elements.profileJob;
 
-const addCardBtn = profile.querySelector('.profile__add-btn');
-const addCardForm = document.forms.addCardForm;
+const buttonAddCard = profile.querySelector('.profile__add-btn');
+const formAddCard = document.forms.addCardForm;
 
 const initialCards = [
   {
@@ -38,4 +38,4 @@ const initialCards = [
   }
 ];
 
-export {editProfileBtn, editProfileForm, addCardBtn, addCardForm, cardsContainer, popupImage, imageLink, imageName, initialCards};
+export {buttonOpenPopupProfile, formEditProfile, inputProfileName, inputProfileJob, buttonAddCard, formAddCard, popupImage, imageLink, imageName, initialCards};

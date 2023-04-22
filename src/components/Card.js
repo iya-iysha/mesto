@@ -1,7 +1,4 @@
-import {cardsContainer, popupImage, imageName, imageLink} from "../utils/constants.js";
-// import {openPopup} from "../utils/utils.js";
-
-class Card {
+export default class Card {
   constructor(name, link, templateSelector, handleCardClick) {
     this._name = name; 
     this._link = link;
@@ -14,7 +11,7 @@ class Card {
   }
   
   _getCardTemplate() {
-    return cardsContainer.querySelector(this._template)
+    return document.querySelector(this._template)
     .content
     .querySelector('.card')
     .cloneNode(true);
@@ -28,9 +25,9 @@ class Card {
   
   _setEventListeners() {
     this._cardElement.querySelector('.card__heart-btn').addEventListener('click', (evt) => evt.target.classList.toggle('card__heart-btn_active'));
-    this._cardElement.querySelector('.card__trash-btn').addEventListener('click', (evt) => evt.target.closest('.card').remove());
-    this._cardImage.addEventListener('click', (evt) => {
-      this._handleCardClick(evt.target.closest('.card').querySelector('.card__title').textContent, evt.target.src);
+    this._cardElement.querySelector('.card__trash-btn').addEventListener('click', () => this._cardElement.remove());
+    this._cardImage.addEventListener('click', () => {
+      this._handleCardClick(this._name, this._link);
     })
   }
   
@@ -40,5 +37,3 @@ class Card {
     return this._cardElement;
   }
 }
-
-export {Card};

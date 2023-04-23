@@ -10,7 +10,6 @@ import { FormValidator, selectorsSet } from '../components/FormValidator.js';
 function addCard(name, link, sectionElement) {
   const newCard = new Card(name, link, "#card", (name, link) => {
     popupWithImage.open({ name, link });
-    popupWithImage.setEventListeners();
   });
   sectionElement.addItem(newCard.createCard());
 }
@@ -29,6 +28,8 @@ validatorAddCard.enableValidation();
 const popupUserInfo = new UserInfo({ name: '.profile__title', job: '.profile__subtitle' });
 
 const popupWithImage = new PopupWithImage('.popup_type_image');
+
+popupWithImage.setEventListeners();
 
 const popupEditProfile = new PopupWithForm('.popup_type_edit-profile', (inputValues) => {
   popupUserInfo.setUserInfo(inputValues['profileName'], inputValues['profileJob']);

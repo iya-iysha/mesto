@@ -12,12 +12,12 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img class="profile__avatar" src="<%=require('./images/__avatar.png')%>" alt="Аватарка">
+          <img class="profile__avatar" alt="Аватарка">
           <div class="profile__heading">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <h1 class="profile__title"></h1>
             <button class="profile__edit-btn" type="button" aria-label="Редактировать профиль"></button>
           </div>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle"></p>
           <button class="profile__add-btn" type="button" aria-label="Добавить место"></button>
         </section>
         <section class="cards">
@@ -26,7 +26,10 @@
               <img class="card__image" src="#">
               <div class="card__caption">
                 <h2 class="card__title"></h2>
-                <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
+                <div class="card__heart-area">
+                  <button class="card__heart-btn" type="button" aria-label="Оценить"></button>
+                  <p class="card__heart-count">1</p>
+                </div>
               </div>
               <button class="card__trash-btn" type="button" aria-label="Удалить"></button>
             </div>

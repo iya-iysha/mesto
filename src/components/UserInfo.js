@@ -1,5 +1,3 @@
-import PopupWithForm from "./PopupWithForm.js";
-
 export default class UserInfo {
   constructor ({ name, job }) {
     this._titleElement = document.querySelector(name);

@@ -16,8 +16,10 @@
 .card__image{aspect-ratio:1/1;border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;display:block;height:282px;-o-object-fit:cover;object-fit:cover;width:282px}
 .card__caption{box-sizing:border-box;display:flex;justify-content:space-between;margin:0;padding:25px 15px 31px 21px}
 .card__title{font-size:24px;font-weight:900;line-height:1.21;margin:0;max-width:210px;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}
+.card__heart-area{display:flex;flex-direction:column;margin:0;padding:0}
 .card__heart-btn{align-self:center;background-color:transparent;background-image:url(87ed371465c7a6a1cd01.svg);background-position:50%;background-repeat:no-repeat;background-size:cover;border:none;box-sizing:border-box;cursor:pointer;height:19px;margin:0;padding:0;transition:opacity .7s,background-image .3s;width:22px}.card__heart-btn:hover{opacity:.5}
 .card__heart-btn_active{background-image:url(e787eeb70bb65b7b453a.svg)}.card__heart-btn_active:hover{opacity:1}
+.card__heart-count{font-size:13px;font-weight:400;line-height:1.21;margin:0 auto;padding:0}
 .card__trash-btn{background-color:transparent;background-image:url(823b0cf1b0b7e9cb7cad.svg);background-position:50%;background-repeat:no-repeat;background-size:cover;border:none;box-sizing:border-box;cursor:pointer;height:19px;margin:0;padding:0;position:absolute;right:20px;top:20px;transition:opacity .7s;width:18px}.card__trash-btn:hover{opacity:.6}
 .footer{margin:0 auto 36px;padding:0;width:88%}@media (min-width:768px){.footer{margin:0 0 60px;width:100%}}
 .footer__copyright{color:#545454;font-size:14px;font-weight:400;line-height:1.21;margin:0;padding:0}@media (min-width:768px){.footer__copyright{font-size:18px}}

@@ -5,6 +5,7 @@
   margin: 0 auto 22.25px;
   display: block;
   object-fit: cover;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -12,4 +13,8 @@
     grid-column: 1;
     grid-row: 1/3;
   }
+}
+
+.profile__avatar:hover {
+  opacity: 0.2;
 }

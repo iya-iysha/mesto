@@ -7,11 +7,41 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import { FormValidator, selectorsSet } from '../components/FormValidator.js';
 import Api from '../components/Api.js';
+import PopupDeleteCard from '../components/PopupDeleteCard.js';
 
-function addCard(name, link, likes, sectionElement) {
-  const newCard = new Card(name, link, likes, "#card", (name, link) => {
+const myId = '2b01e36423326e5584005ba4';
+
+
+function addCard(data, sectionElement) {
+  const newCard = new Card(data, "#card", myId, (name, link) => {
     popupWithImage.open({ name, link });
-  });
+  },
+  (cardId) => {
+    popupDeleteCard.open();
+    popupDeleteCard.setSubmit(() => {
+      api.deleteCard(cardId).then(() => {
+        newCard.deleteCard();
+        popupDeleteCard.close();
+      })
+      .catch((err) => { alert(err); })
+    })
+  }, 
+  (cardId) => {
+    api.putLike(cardId)
+    .then((data) => {
+      newCard.updateLikes(data)
+    })
+   .catch((err) => { alert(err); })
+  }, 
+  (cardId) => 
+  {
+    api.deleteLike(cardId)
+    .then((data) => {
+      newCard.updateLikes(data)
+   })
+  .catch((err) => { alert(err); })
+  })
+
   sectionElement.addItem(newCard.createCard());
 }
 
@@ -20,6 +50,9 @@ validatorEditProfile.enableValidation();
 
 const validatorAddCard = new FormValidator(selectorsSet, formAddCard);
 validatorAddCard.enableValidation();
+
+const popupDeleteCard = new PopupDeleteCard('.popup_type_delete');
+popupDeleteCard.setEventListeners();
 
 const popupUserInfo = new UserInfo({ name: '.profile__title', job: '.profile__subtitle' });
 
@@ -43,10 +76,10 @@ api.getUserInfo()
 .catch((err) => { alert(err); });
 
 const cardsContainer = new Section((item) => {
-  addCard(item.name, item.link, item.likes.length, cardsContainer);
+  addCard(item, cardsContainer);
 }, '.cards');
 
-api.getInitialCards()
+api.getCardsInfo()
 .then((result) => {
   cardsContainer.renderItems(result);
 })
@@ -65,7 +98,7 @@ popupEditProfile.setEventListeners();
 const popupAddCard = new PopupWithForm('.popup_type_add-card', (inputValues) => {
   api.addNewCard(inputValues.cardTitle, inputValues.cardLink)
   .then ((result) => {
-    addCard(result.name, result.link, result.likes.length, cardsContainer);
+    addCard(result, cardsContainer);
   })
   .catch ((err) => { alert(err); });
   popupAddCard.close();

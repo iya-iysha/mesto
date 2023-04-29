@@ -1,5 +1,5 @@
 import './index.css';
-import { buttonEditAvatar, formEditAvatar, buttonOpenPopupProfile, formEditProfile, buttonAddCard, formAddCard, inputProfileName, inputProfileJob } from '../utils/constants.js';
+import { buttonEditAvatar, formEditAvatar, buttonOpenPopupProfile, formEditProfile, buttonAddCard, formAddCard } from '../utils/constants.js';
 import Section from '../components/Section.js';
 import Card from '../components/Card.js';
 import PopupWithImage from '../components/PopupWithImage.js';
@@ -70,7 +70,7 @@ Promise.all([api.getUserInfo(), api.getCardsInfo()])
   popupUserInfo.setAvatar(user.avatar);
   cardsContainer.renderItems(cards);
 })
-.catch((err) => { alert(err); })
+.catch((err) => { alert(err) })
 
 const popupDeleteCard = new PopupDeleteCard('.popup_type_delete');
 popupDeleteCard.setEventListeners();
@@ -86,21 +86,21 @@ const popupEditAvatar = new PopupWithForm('.popup_type_edit-avatar', (inputValue
   .then((res) => {
     popupUserInfo.setAvatar(res.avatar);
   })
+  .then(() => { popupEditAvatar.close() })
   .catch((err) => { alert(err) })
   .finally(() => { popupEditAvatar.renderLoading(false); })
-  popupEditAvatar.close();
 });
 popupEditAvatar.setEventListeners();
 
 const popupEditProfile = new PopupWithForm('.popup_type_edit-profile', (inputValues) => {
   popupEditProfile.renderLoading(true);
-  api.editUserInfo(inputValues['profileName'], inputValues['profileJob'])
+  api.editUserInfo(inputValues['title'], inputValues['subtitle'])
   .then((result) => {
     popupUserInfo.setUserInfo(result.name, result.about);
   })
-  .catch((err) => { alert(err); })
+  .then(() => { popupEditProfile.close() })
+  .catch((err) => { alert(err) })
   .finally(() => { popupEditProfile.renderLoading(false) });
-  popupEditProfile.close();
 });
 popupEditProfile.setEventListeners();
 
@@ -110,27 +110,23 @@ const popupAddCard = new PopupWithForm('.popup_type_add-card', (inputValues) => 
   .then ((result) => {
     addCard(result, cardsContainer);
   })
-  .catch ((err) => { alert(err); })
+  .then(() => { popupAddCard.close() })
+  .catch ((err) => { alert(err) })
   .finally(() => { popupAddCard.renderLoading(false) });
-  popupAddCard.close();
 });
 popupAddCard.setEventListeners();
 
 buttonEditAvatar.addEventListener('click', () => {
-  formEditAvatar.reset();
   popupEditAvatar.open();
 })
 
 buttonOpenPopupProfile.addEventListener('click', () => {
-  formEditProfile.reset();
   popupEditProfile.open();
 
   const getInfo = popupUserInfo.getUserInfo();
-  inputProfileName.value = getInfo.title;
-  inputProfileJob.value = getInfo.subtitle;
+  popupEditProfile.setInputValues(getInfo);
 })
 
 buttonAddCard.addEventListener('click', () => {
-  formAddCard.reset();
   popupAddCard.open();
 })
